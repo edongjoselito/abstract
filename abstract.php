@@ -171,6 +171,7 @@
         <?php $sql = "SELECT * FROM proc_quotation WHERE actID=$ren_id  and supplier='".$q."'";
               $row_set = mysqli_query($con, $sql);
               $ren=0;
+              $has_zero_point_one = false; // Flag to track if 0.01 is found
               while($pra = mysqli_fetch_assoc($row_set)){ 
                 $id = $pra['prID'];
 
@@ -185,17 +186,31 @@
 
             ?>
             
-            <?php $ta= $pra['q_amount']*$qty['qty']; ?>
+            <?php 
+                $ta= $pra['q_amount']*$qty['qty']; 
+
+                if ($pra['q_amount'] == 0.01) {
+                    $has_zero_point_one = true; // Set the flag if 0.01 is found
+                }
+            ?>
+
             
             <?php $ren+=$ta; ?>
 
 
-            <?php } ?>    
+            <?php }  ?>    
         
             <td class="text-center" colspan="2" <?php  if($fec <= $ren){echo 'style="color:red"';} ?>>
             <?php $sup_name = $sup['supplier']; ?>
 
-            <b><?= number_format($ren, 2); ?></b>
+            <b><?php number_format($ren, 2); ?></b>
+            <?php 
+            if (!$has_zero_point_one) {
+                echo "Total: " . $ren;
+            }
+            ?>
+
+
 
             
             <?php 
@@ -218,28 +233,7 @@
         }
         ?>
 
-        <?php
-        $numbers = array(
-            1250,
-            0.01,
-            48,
-            425,
-            120,
-            135,
-            165
-        );
-        
-        $sum = 0; // Initialize the sum variable
-        
-        foreach ($numbers as $number) {
-            if ($number !== 0.01) { // Exclude 0.01
-                $sum += $number; // Add each number to the sum
-            }
-        }
-        
-        echo "The total sum excluding 0.01 is: " . $sum; // Output the result
-        ?>
-
+       
 
 
  
