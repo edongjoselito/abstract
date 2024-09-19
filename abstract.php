@@ -266,7 +266,7 @@
     </tr>
     <tr>
         <td colspan="3" class="tb">Approved  Budget for the Contract:</td>
-        <td colspan="<?= $row_count*2+2; ?>">  <b><?= number_format($fec, 2); ?></b></td>
+        <td colspan="<?= $row_count*2+2; ?>">  <b style="margin-left:2%;"><?= number_format($fec, 2); ?></b></td>
     </tr>
     <tr>
         <td colspan="<?= $row_count*2+5; ?>" style="border:0; background-color:#3b76fd; font-weight:bold; padding:10px">Note: The highlighted amount in "Unit Price" comumn is the lowest qouted price for the item. Absence of a highlight means the item for procurement is 'FAILED.'</td>
