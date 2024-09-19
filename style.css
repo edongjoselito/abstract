@@ -157,16 +157,38 @@ a:hover{
   background-color: #0056b3;
 }
 
+.sign {
+  text-align:center;
+  margin:30px 0;
+}
+
+.sign p{
+  display: inline-block;
+  margin-right:7%;
+  font-weight:bold;
+  font-size:12px;
+}
+
+.sign p span{
+  display: block;
+  text-align:center;
+  font-weight:normal;
+}
+
 @media print {
   @page {
       size: A4 landscape; /* Set paper size to A4 in landscape orientation */
-      margin: 20mm; /* Adjust margins as needed */
+      margin: 10mm; /* Adjust margins as needed */
       margin-top:10mm;
   }
   
   body {
       margin: 0; /* Remove default margin */
       padding: 0; /* Remove default padding */
+  }
+
+  .sign p{
+    margin-right:5%;
   }
 
   .hwrap{

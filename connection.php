@@ -1,5 +1,5 @@
 <?php
-  $server = "Server1";
+  $server = "localhost";
   $user = "root";
   $pass = "moth34board";
   $name = "ptc_ims";

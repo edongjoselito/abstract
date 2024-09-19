@@ -292,6 +292,14 @@
 
 <?php } ?>
 
+<div class="sign">
+    <p>EMMA O. RABUYA <span>BAC Member</span></p>
+    <p>NANCY P. SUMAGAYSAY, PHD<span>BAC Member</span></p>
+    <p>YVETTE M. CELMAR, PHD <span>BAC Member</span></p>
+    <p>BERNABE M. BASILISCO<span>BAC Member</span></p>
+    <p>ERNESTO H. CABANES<span>Acting Chairperson</span></p>
+</div>
+
 
 
 </body>
