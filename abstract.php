@@ -237,7 +237,7 @@
     <tr>
         <td colspan="5" style="padding:8px"> REMARKS (RESPONSIVE, PASSED, OR NO-RESPONSIVE) </td>
         <?php
-              $sql = "SELECT * FROM proc_quotation WHERE actID=$ren_id and lot='Lot 2' group by supplier";
+              $sql = "SELECT * FROM proc_quotation WHERE actID=$ren_id and lot='".$cl."' group by supplier";
               $result_set = mysqli_query($con, $sql);
               while($row = mysqli_fetch_assoc($result_set)){ 
                 
@@ -249,7 +249,7 @@
     <tr>
         <td colspan="5" style="padding:8px"> OTHER REMARKS</td>
         <?php
-              $sql = "SELECT * FROM proc_quotation WHERE actID=$ren_id and lot='Lot 2' group by supplier";
+              $sql = "SELECT * FROM proc_quotation WHERE actID=$ren_id and lot='".$cl."' group by supplier";
               $result_set = mysqli_query($con, $sql);
               $row_count = mysqli_num_rows($result_set);
               while($row = mysqli_fetch_assoc($result_set)){ 

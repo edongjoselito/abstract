@@ -161,11 +161,16 @@ a:hover{
   @page {
       size: A4 landscape; /* Set paper size to A4 in landscape orientation */
       margin: 20mm; /* Adjust margins as needed */
+      margin-top:10mm;
   }
   
   body {
       margin: 0; /* Remove default margin */
       padding: 0; /* Remove default padding */
+  }
+
+  .hwrap{
+    margin-top:0;
   }
 
  .renren{
