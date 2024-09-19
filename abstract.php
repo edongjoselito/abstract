@@ -171,6 +171,7 @@
         <?php $sql = "SELECT * FROM proc_quotation WHERE actID=$ren_id  and supplier='".$q."'";
               $row_set = mysqli_query($con, $sql);
               $ren=0;
+              $renren_guapo=0;
               $has_zero_point_one = false; // Flag to track if 0.01 is found
               while($pra = mysqli_fetch_assoc($row_set)){ 
                 $id = $pra['prID'];
@@ -195,7 +196,7 @@
             ?>
 
             
-            <?php $ren+=$ta; ?>
+            <?php $ren+=$ta; $renren_guapo+=$ta; ?>
 
 
             <?php }  ?>    
@@ -203,7 +204,7 @@
             <td class="text-center" colspan="2" <?php  if($fec <= $ren){echo 'style="color:red"';} ?>>
             <?php $sup_name = $sup['supplier']; ?>
 
-            <b><?= number_format($ren, 2); ?></b>
+            
             <?php 
             if (!$has_zero_point_one) {
                 $names[$sup_name] = $ren;
@@ -211,9 +212,10 @@
             ?>
 
 
-            
+            <b><?= number_format($renren_guapo, 2); ?></b>
 
             </td>
+            
 
             
             
@@ -288,10 +290,6 @@
 
 </table>
 
-
-
-<?php } ?>
-
 <div class="sign">
     <p>EMMA O. RABUYA <span>BAC Member</span></p>
     <p>NANCY P. SUMAGAYSAY, PHD<span>BAC Member</span></p>
@@ -299,6 +297,11 @@
     <p>BERNABE M. BASILISCO<span>BAC Member</span></p>
     <p>ERNESTO H. CABANES<span>Acting Chairperson</span></p>
 </div>
+
+
+<?php } ?>
+
+
 
 
 
