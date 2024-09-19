@@ -206,7 +206,7 @@
             <b><?php number_format($ren, 2); ?></b>
             <?php 
             if (!$has_zero_point_one) {
-                echo "Total: " . $ren;
+                echo $ren;
             }
             ?>
 
