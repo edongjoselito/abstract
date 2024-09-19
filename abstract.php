@@ -203,19 +203,14 @@
             <td class="text-center" colspan="2" <?php  if($fec <= $ren){echo 'style="color:red"';} ?>>
             <?php $sup_name = $sup['supplier']; ?>
 
-            <b><?php number_format($ren, 2); ?></b>
+            <b><?= number_format($ren, 2); ?></b>
             <?php 
             if (!$has_zero_point_one) {
-                echo $ren;
+                $names[$sup_name] = $ren;
             }
             ?>
 
 
-
-            
-            <?php 
-                $names[$sup_name] = $ren;
-            ?>
             
 
             </td>
