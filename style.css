@@ -190,6 +190,10 @@ a:hover{
       padding: 0; /* Remove default padding */
   }
 
+  .sign{
+    margin:2px;
+  }
+
   .sign p{
     margin-right:5%;
   }
