@@ -235,7 +235,7 @@
       
     </tr>
     <tr>
-        <td colspan="5" style="padding:8px"> REMARKS (RESPONSIVE, PASSED, OR NO-RESPONSIVE) </td>
+        <td colspan="5" class="tb"> REMARKS (RESPONSIVE, PASSED, OR NO-RESPONSIVE) </td>
         <?php
               $sql = "SELECT * FROM proc_quotation WHERE actID=$ren_id and lot='".$cl."' group by supplier";
               $result_set = mysqli_query($con, $sql);
@@ -247,7 +247,7 @@
         <?php } ?>
     </tr>
     <tr>
-        <td colspan="5" style="padding:8px"> OTHER REMARKS</td>
+        <td colspan="5" class="tb"> OTHER REMARKS</td>
         <?php
               $sql = "SELECT * FROM proc_quotation WHERE actID=$ren_id and lot='".$cl."' group by supplier";
               $result_set = mysqli_query($con, $sql);
@@ -261,11 +261,11 @@
         <?php } ?>
     </tr>
     <tr>
-        <td colspan="2" style="padding:8px">Purpose</td>
+        <td colspan="2" class="tb">Purpose</td>
         <td colspan="<?= $row_count*2+3; ?>"><strong><?= $act['act_title']; ?></strong></td>
     </tr>
     <tr>
-        <td colspan="3" style="padding:8px">Approved  Budget for the Contract:</td>
+        <td colspan="3" class="tb">Approved  Budget for the Contract:</td>
         <td colspan="<?= $row_count*2+2; ?>">  <b><?= number_format($fec, 2); ?></b></td>
     </tr>
     <tr>

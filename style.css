@@ -174,12 +174,15 @@ a:hover{
   text-align:center;
   font-weight:normal;
 }
+.tb{
+  padding:8px;
+}
 
 @media print {
   @page {
       size: A4 landscape; /* Set paper size to A4 in landscape orientation */
       margin: 10mm; /* Adjust margins as needed */
-      margin-top:10mm;
+      margin-bottom:5mm;
   }
   
   body {
@@ -197,6 +200,10 @@ a:hover{
 
  .renren{
   display:none;
+ }
+
+ .tb{
+  padding:4px 15px;
  }
 
 }
