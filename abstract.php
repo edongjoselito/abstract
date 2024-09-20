@@ -117,60 +117,56 @@
         <td class="text-center"><?= $rows['qty']; ?></td>
         <td class="text-center"><?= number_format($rows['est_cost']); ?></td>
         <?php
-$sql = "SELECT * FROM proc_quotation WHERE actID=$ren_id and lot='".$cl."' GROUP BY supplier";
-$result_set = mysqli_query($con, $sql);
+            $sql = "SELECT * FROM proc_quotation WHERE actID=$ren_id and lot='".$cl."' GROUP BY supplier";
+            $result_set = mysqli_query($con, $sql);
 
-// Initialize a variable to track the lowest q_amount
-$min_q_amount = PHP_INT_MAX; // Start with the largest possible integer
+            // Initialize a variable to track the lowest q_amount
+            $min_q_amount = PHP_INT_MAX; // Start with the largest possible integer
 
-// First pass to find the minimum q_amount
-while($row = mysqli_fetch_assoc($result_set)) {
-    $prs = str_replace("'", "\'", $row['supplier']);
-    
-    $sql = "SELECT * FROM proc_quotation WHERE prID=$pr_id and lot='".$cl."' and supplier='".$prs."'";
-    $pro_set = mysqli_query($con, $sql);
-    $pr = mysqli_fetch_assoc($pro_set);
+            // First pass to find the minimum q_amount
+            while($row = mysqli_fetch_assoc($result_set)) {
+                $prs = str_replace("'", "\'", $row['supplier']);
+                
+                $sql = "SELECT * FROM proc_quotation WHERE prID=$pr_id and lot='".$cl."' and supplier='".$prs."'";
+                $pro_set = mysqli_query($con, $sql);
+                $pr = mysqli_fetch_assoc($pro_set);
 
-    if ($pr['q_amount'] > 0.01 && $pr['q_amount'] < $min_q_amount) {
-        $min_q_amount = $pr['q_amount']; // Update min_q_amount
-    }
-}
+                if ($pr['q_amount'] > 0.01 && $pr['q_amount'] < $min_q_amount) {
+                    $min_q_amount = $pr['q_amount']; // Update min_q_amount
+                }
+            }
 
-// Reset result_set for the second pass
-mysqli_data_seek($result_set, 0); // Reset the result set pointer
+            // Reset result_set for the second pass
+            mysqli_data_seek($result_set, 0); // Reset the result set pointer
 
-// Second pass to display the values and highlight the minimum
-while($row = mysqli_fetch_assoc($result_set)) {
-    $prs = str_replace("'", "\'", $row['supplier']);
-    
-    $sql = "SELECT * FROM proc_quotation WHERE prID=$pr_id and lot='".$cl."' and supplier='".$prs."'";
-    $pro_set = mysqli_query($con, $sql);
-    $pr = mysqli_fetch_assoc($pro_set);
-    
-    // Determine if this is the minimum q_amount for highlighting
-    $is_lowest = $pr['q_amount'] == $min_q_amount;
-?>
-    <td class="text-center" style="<?php echo $is_lowest ? 'background-color: yellow;' : ''; ?>">
-        <?php if($pr['q_amount'] == 0.01) {
-            echo "N/A";
-        } else {
-            echo number_format($pr['q_amount']);
-        } ?>
-    </td>
-    <td class="text-center" style="<?php echo $is_lowest ? 'background-color: yellow;' : ''; ?>">
-        <?php if($pr['q_amount'] == 0.01) {
-            echo "N/A";
-        } else {
-            echo number_format($pr['q_amount'] * $rows['qty'], 2);
-        } ?>
-    </td>
-<?php 
-} 
-?>
-
-
-
-        
+            // Second pass to display the values and highlight the minimum
+            while($row = mysqli_fetch_assoc($result_set)) {
+                $prs = str_replace("'", "\'", $row['supplier']);
+                
+                $sql = "SELECT * FROM proc_quotation WHERE prID=$pr_id and lot='".$cl."' and supplier='".$prs."'";
+                $pro_set = mysqli_query($con, $sql);
+                $pr = mysqli_fetch_assoc($pro_set);
+                
+                // Determine if this is the minimum q_amount for highlighting
+                $is_lowest = $pr['q_amount'] == $min_q_amount;
+            ?>
+                <td class="text-center" style="<?php echo $is_lowest ? 'background-color: #718093; color: #fff' : ''; ?>">
+                    <?php if($pr['q_amount'] == 0.01) {
+                        echo "N/A";
+                    } else {
+                        echo number_format($pr['q_amount']);
+                    } ?>
+                </td>
+                <td class="text-center" style="<?php echo $is_lowest ? 'background-color: #718093; color: #fff' : ''; ?>">
+                    <?php if($pr['q_amount'] == 0.01) {
+                        echo "N/A";
+                    } else {
+                        echo number_format($pr['q_amount'] * $rows['qty'], 2);
+                    } ?>
+                </td>
+            <?php 
+            } 
+            ?>
 
 
     </tr>
@@ -316,7 +312,7 @@ while($row = mysqli_fetch_assoc($result_set)) {
         <td colspan="<?= $row_count*2+2; ?>">  <b style="margin-left:2%;"><?= number_format($fec, 2); ?></b></td>
     </tr>
     <tr>
-        <td colspan="<?= $row_count*2+5; ?>" style="border:0; background-color:#3b76fd; font-weight:bold; padding:10px">Note: The highlighted amount in "Unit Price" comumn is the lowest qouted price for the item. Absence of a highlight means the item for procurement is 'FAILED.'</td>
+        <td colspan="<?= $row_count*2+5; ?>" style="border:0; background-color:#3b76fd; font-weight:bold; padding:10px; color:#fff">Note: The highlighted amount in "Unit Price" comumn is the lowest qouted price for the item. Absence of a highlight means the item for procurement is 'FAILED.'</td>
     </tr>
     <tr>
         <td colspan="<?= $row_count*2+5; ?>" style="border:0; padding:10px; text-indent: 50px;">
