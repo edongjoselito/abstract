@@ -122,19 +122,24 @@
               $result_set = mysqli_query($con, $sql);
               while($row = mysqli_fetch_assoc($result_set)){
                 $prs = str_replace("'", "\'", $row['supplier']);
-               
 
+                
                 $sql = "SELECT * FROM proc_quotation WHERE prID=$pr_id and lot='".$cl."' and supplier='".$prs."'";
                 $pro_set = mysqli_query($con, $sql);  
                 $pr = mysqli_fetch_assoc($pro_set)
 
         ?>
-            <td class="text-center"><?php if($pr['q_amount'] == 0.01){echo "N/A";}else{echo number_format($pr['q_amount']);}?></td>
+            <td class="text-center">
+                <?php if($pr['q_amount'] == 0.01){echo "N/A";}else{echo number_format($pr['q_amount']);}?>
+
+
+            </td>
             <td class="text-center"><?php if($pr['q_amount'] == 0.01){echo "N/A";}else{echo  number_format($pr['q_amount']*$rows['qty'], 2);} ?></td>
             
         <?php } ?>
 
 
+        
 
 
     </tr>
