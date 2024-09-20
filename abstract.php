@@ -10,6 +10,8 @@
 </head>
 <body>
 
+<div class="page-number"></div>
+
 <?php $ren_id=$_GET['id']; ?>
 
 <div class="renren">
@@ -55,21 +57,23 @@
     $row_set = mysqli_query($con, $sql);
     $act = mysqli_fetch_assoc($row_set) 
 ?>
-  
+
+<table class="guaposirenren">
+    <tr>
+            <td class="topcont ic">Mode of Procurement</td>
+            <td class="text-center bgblue">NP-Small Value Procurement</td>
+        </tr>
+        <tr>
+            <td class="topcont">Quotation No.:</td>
+            <td class="text-center bgblue">24-08-0008</td>
+        </tr>
+        <tr>
+            <td class="topcont">Date of Opening</td>
+            <td class="text-center">9/3/2024</td>
+        </tr>
+</table>
 
 <table class="ab_report">
-    <tr>
-        <td colspan="<?= $cr*2+3; ?>" class="topcont">Mode of Procurement</td>
-        <td colspan="2" class="text-center bgblue">NP-Small Value Procurement</td>
-    </tr>
-    <tr>
-        <td colspan="<?= $cr*2+3; ?>" class="topcont">Quotation No.:</td>
-        <td colspan="2" class="text-center bgblue">24-08-0008</td>
-    </tr>
-    <tr>
-        <td colspan="<?= $cr*2+3; ?>" class="topcont">Date of Opening</td>
-        <td colspan="2" class="text-center">9/3/2024</td>
-    </tr>
     <tr>
         <th rowspan="2">ITEM NO.</th>
         <th rowspan="2">UNIT OF ISSUE</th>
@@ -129,6 +133,7 @@
             <td class="text-center"><?php if($pr['q_amount'] == 0.01){echo "N/A";}else{echo  number_format($pr['q_amount']*$rows['qty'], 2);} ?></td>
             
         <?php } ?>
+
 
 
 
@@ -209,7 +214,13 @@
             if (!$has_zero_point_one) {
                 $names[$sup_name] = $ren;
             }
+
+            //$ivyclaire[$sup_name]=$ren;
+
+            //echo $ivyclaire;
             ?>
+
+
 
 
             <b><?= number_format($renren_guapo, 2); ?></b>
@@ -221,16 +232,14 @@
             
         <?php } ?>
         
-        <?php 
-        if(!empty($names)){
+        <?php if(!empty($names)){
             $minValue = min($names);
 
             // Find the key associated with the minimum value
             $minKey = array_search($minValue, $names);
-        }
+            }
         ?>
 
-       
 
 
  
@@ -300,10 +309,6 @@
 
 
 <?php } ?>
-
-
-
-
 
 </body>
 </html>
