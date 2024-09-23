@@ -36,7 +36,7 @@
 
 
 <div class="hwrap">
-    <!-- <img class="logo" src="ke.png" alt="">
+    <img class="logo" src="ke.png" alt="">
         <p class="textwrap">
         <span class="rp">Republic of the Philippines</span>
             <span class="de">Department of Education</span>
@@ -44,9 +44,14 @@
             <span class="r">School Division of Davao Oriental</span>
             <span class="r">Mati City</span>
         </p>
-        <h1 class="na">ABSTRACT OF QUOTATION</h1> -->
-        <img class="h_image" src="heading.jpg" alt="">
+        <h1 class="na">ABSTRACT OF QUOTATION</h1>
 </div>
+
+
+<div class="imgwrap">
+<img class="h_image" src="heading.jpg" alt="">
+</div>
+
 
 
 

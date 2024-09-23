@@ -136,6 +136,12 @@ a:hover{
   text-decoration: underline;
 }
 
+
+.imgwrap{
+  text-align:center;
+  display:none;
+}
+
 .styled-form {
   display: flex;
   align-items: center;
