@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://db.onlinewebfonts.com/a/0nH393RJctHgt1f2YvZvyruY" rel="stylesheet" type="text/css"/>
     <title>ABSTRACT OF QUOTATION</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
 </head>
 <body>
+
 
 <div class="page-number"></div>
 
@@ -34,7 +36,7 @@
 
 
 <div class="hwrap">
-    <img class="logo" src="ke.png" alt="">
+    <!-- <img class="logo" src="ke.png" alt="">
         <p class="textwrap">
         <span class="rp">Republic of the Philippines</span>
             <span class="de">Department of Education</span>
@@ -42,7 +44,8 @@
             <span class="r">School Division of Davao Oriental</span>
             <span class="r">Mati City</span>
         </p>
-        <h1 class="na">ABSTRACT OF QUOTATION</h1>
+        <h1 class="na">ABSTRACT OF QUOTATION</h1> -->
+        <img class="h_image" src="heading.jpg" alt="">
 </div>
 
 
